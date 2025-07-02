@@ -1,0 +1,191 @@
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Aplikasi To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <style>
+    :root {
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --background: #f9fafb;
+    --card: #ffffff;
+    --text: #111827;
+    --done: #9ca3af;
+    --low: #10b981;
+    --medium: #f59e0b;
+    --high: #ef4444;
+    }
+
+    body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--background);
+    margin: 0;
+    padding: 20px;
+    color: var(--text);
+    }
+
+    .container {
+    max-width: 800px;
+    margin: auto;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    header h2 {
+    color: var(--primary);
+    margin-bottom: 0;
+    }
+
+    #profile {
+    font-weight: 600;
+    }
+
+    #current-time {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 5px;
+    }
+
+    textarea {
+    width: 100%;
+    height: 80px;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    resize: none;
+    font-size: 16px;
+    }
+
+    select, button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    }
+
+    select {
+    background-color: #f3f4f6;
+    margin-right: 10px;
+    }
+
+    button#addTaskBtn {
+    background-color: var(--primary);
+    color: white;
+    }
+
+    button#deleteAllBtn {
+    background-color: #e11d48;
+    color: white;
+    margin-left: 10px;
+    }
+
+    .task-lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    }
+
+    .task-lists > div {
+    flex: 1;
+    }
+
+    h3 {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 5px;
+    }
+
+    ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 15px;
+    }
+
+    li {
+    background: #f3f4f6;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+
+    li span {
+    flex: 1;
+    margin-left: 10px;
+    font-size: 15px;
+    }
+
+    li.done span {
+    text-decoration: line-through;
+    color: var(--done);
+    }
+
+    li.low {
+    border-left: 5px solid var(--low);
+    }
+
+    li.medium {
+    border-left: 5px solid var(--medium);
+    }
+
+    li.high {
+    border-left: 5px solid var(--high);
+    }
+
+    li.overdue {
+    background: #fef2f2;
+    border-left: 5px solid #dc2626;
+    }
+
+    </style>
+    <body>
+    <div class="container">
+        <header>
+        <h2>To Do App</h2>
+        <p id="profile">Nama: Michael | Jabatan: Developer</p>
+        <p id="current-time"></p>
+        </header>
+
+        <section>
+        <textarea id="taskInput" placeholder="Tulis tugas di sini..."></textarea>
+        <select id="prioritySelect">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button id="addTaskBtn">Submit</button>
+        <button id="deleteAllBtn">Delete All</button>
+        </section>
+
+        <main>
+        <div class="task-lists">
+            <div>
+            <h3>To Do</h3>
+            <ul id="todoList"></ul>
+            </div>
+            <div>
+            <h3>Done</h3>
+            <ul id="doneList"></ul>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <script src="Script_4.js"></script>
+    </body>
+    </html>
